@@ -34,8 +34,24 @@ To run the unit tests once, run:
 npm test
 ```
 
-To run the unit tests and watch for file changes during development, run:
+To run the stenciljs unit tests and watch for file changes during development, run:
 
 ```
-npm run test.watch
+npm run test:e2e
 ```
+
+To run the mocha framework automation code to cover sanity, run:
+
+```
+npm test or npm test MS for MSB WEB automation
+
+npm test bc for BCH WEB automation
+
+npm test mg for Migraine WEB automation
+
+npm test ibd for IBD WEB automation
+
+npm test t2d for T2D WEB automation
+
+npm test ra for RA WEB automation
+
