@@ -8,6 +8,7 @@
     "start": "stencil build --dev --watch --serve",
     "test:e2e": "stencil test --e2e --spec",
     "test": "mocha --timeout 90000  ./test/bootstrap.js --recursive test --reporter mochawesome",
+    "test-feature": "mocha --timeout 90000  ./test-feature/bootstrap.js --recursive test-feature --reporter mochawesome",
     "generate": "stencil generate"
   },
   "devDependencies": {

@@ -9,7 +9,10 @@ var appstore_url="";
 var app_name="";
 var welcome_text="";
 if(process.argv[9]=="ms" || process.argv[9]=="MS" || process.argv[9]=="" || process.argv[9]==null){
-URL="https://together-msb-stage-web.healthline.com";
+	URL="https://ms.healthline.com";
+if(process.argv[10]=="stage" || process.argv[10]=="STAGE"){
+	URL="https://together-msb-stage-web.healthline.com";
+}
 playstore_url="https://play.google.com/store/apps/details?id=com.healthline.msbuddy";
 appstore_url="https://apps.apple.com/us/app/id1040195462?mt=8";
 app_name="MSB";
@@ -17,6 +20,9 @@ welcome_text="Multiple Sclerosis Community";
 }
 if(process.argv[9]=="BC" || process.argv[9]=="bc"){
 	URL="https://bc.healthline.com";
+	if(process.argv[10]=="stage" || process.argv[10]=="STAGE"){
+		URL="https://together-bch-stage-web.healthline.com";
+	}
 	playstore_url="https://play.google.com/store/apps/details?id=com.healthline.breastcancer";
 	appstore_url="https://apps.apple.com/US/app/id1356340700?mt=8";
 	app_name="BCH";
@@ -24,6 +30,9 @@ if(process.argv[9]=="BC" || process.argv[9]=="bc"){
 }
 if(process.argv[9]=="mg" || process.argv[9]=="MG"){
 	URL="https://migraine.healthline.com";
+	if(process.argv[10]=="stage" || process.argv[10]=="STAGE"){
+		URL="https://together-mig-stage-web.healthline.com";
+	}
 	playstore_url="https://play.google.com/store/apps/details?id=com.healthline.mig";
 	appstore_url="https://apps.apple.com/US/app/id1494062954?mt=8";
 	app_name="Migraine";
@@ -31,6 +40,9 @@ if(process.argv[9]=="mg" || process.argv[9]=="MG"){
 }
 if(process.argv[9]=="ibd" || process.argv[9]=="IBD"){
 	URL="https://ibd.healthline.com";
+	if(process.argv[10]=="stage" || process.argv[10]=="STAGE"){
+		URL="https://together-ibd-stage-web.healthline.com";
+	}
 	playstore_url="https://play.google.com/store/apps/details?id=com.healthline.ibd";
 	appstore_url="https://apps.apple.com/US/app/id1459294732?mt=8";
 	app_name="IBD";
@@ -38,6 +50,9 @@ if(process.argv[9]=="ibd" || process.argv[9]=="IBD"){
 }
 if(process.argv[9]=="t2d" || process.argv[9]=="T2D"){
 	URL="https://t2d.healthline.com";
+	if(process.argv[10]=="stage" || process.argv[10]=="STAGE"){
+		URL="https://together-t2d-stage-web.healthline.com";
+	}
 	playstore_url="https://play.google.com/store/apps/details?id=com.healthline.t2d";
 	appstore_url="https://apps.apple.com/US/app/id1498858311?mt=8";
 	app_name="T2D";
@@ -45,6 +60,9 @@ if(process.argv[9]=="t2d" || process.argv[9]=="T2D"){
 }
 if(process.argv[9]=="ra" || process.argv[9]=="RA"){
 	URL="https://ra.healthline.com";
+	if(process.argv[10]=="stage" || process.argv[10]=="STAGE"){
+		URL="https://together-ra-stage-web.healthline.com";
+	}
 	playstore_url="https://play.google.com/store/apps/details?id=com.healthline.ra";
 	appstore_url="https://apps.apple.com/US/app/id1498862311?mt=8";
 	app_name="RA";
@@ -57,6 +75,7 @@ describe(app_name+' Web Home page', async () => { // Started to new test-suit
 	before(async () => { /* Before hook for mocha testing, This code will be executed before each testcases */
 		page = await browser.newPage(); // Opened new tab 
 		//page.on('console', consoleObj => console.log(consoleObj.text())); // To display console log inside evaluate function
+		console.log(URL+"  ********* ");
 		await page.goto(URL,{
 			waitUntil: 'networkidle2',
 			// Remove the timeout

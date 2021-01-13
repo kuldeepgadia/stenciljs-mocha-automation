@@ -9,47 +9,67 @@ var playstore_url = "";
 var appstore_url = "";
 var app_name = "";
 var welcome_text = "";
-if (process.argv[9] == "ms" || process.argv[9] == "MS" || process.argv[9] == "" || process.argv[9] == null) {
-	URL = "https://together-msb-stage-web.healthline.com";
-	playstore_url = "https://play.google.com/store/apps/details?id=com.healthline.msbuddy";
-	appstore_url = "https://apps.apple.com/us/app/id1040195462?mt=8";
-	app_name = "MSB";
-	welcome_text = "Multiple Sclerosis Community";
+
+if(process.argv[9]=="ms" || process.argv[9]=="MS" || process.argv[9]=="" || process.argv[9]==null){
+	URL="https://ms.healthline.com";
+if(process.argv[10]=="stage" || process.argv[10]=="STAGE"){
+	URL="https://together-msb-stage-web.healthline.com";
 }
-if (process.argv[9] == "BC" || process.argv[9] == "bc") {
-	URL = "https://bc.healthline.com";
-	playstore_url = "https://play.google.com/store/apps/details?id=com.healthline.breastcancer";
-	appstore_url = "https://apps.apple.com/US/app/id1356340700?mt=8";
-	app_name = "BCH";
-	welcome_text = "Breast Cancer Community";
+playstore_url="https://play.google.com/store/apps/details?id=com.healthline.msbuddy";
+appstore_url="https://apps.apple.com/us/app/id1040195462?mt=8";
+app_name="MSB";
+welcome_text="Multiple Sclerosis Community";
 }
-if (process.argv[9] == "mg" || process.argv[9] == "MG") {
-	URL = "https://migraine.healthline.com";
-	playstore_url = "https://play.google.com/store/apps/details?id=com.healthline.mig";
-	appstore_url = "https://apps.apple.com/US/app/id1494062954?mt=8";
-	app_name = "Migraine";
-	welcome_text = "Migraine Community";
+
+if(process.argv[9]=="BC" || process.argv[9]=="bc"){
+	URL="https://bc.healthline.com";
+	if(process.argv[10]=="stage" || process.argv[10]=="STAGE"){
+		URL="https://together-bch-stage-web.healthline.com";
+	}
+	playstore_url="https://play.google.com/store/apps/details?id=com.healthline.breastcancer";
+	appstore_url="https://apps.apple.com/US/app/id1356340700?mt=8";
+	app_name="BCH";
+	welcome_text="Breast Cancer Community";
 }
-if (process.argv[9] == "ibd" || process.argv[9] == "IBD") {
-	URL = "https://ibd.healthline.com";
-	playstore_url = "https://play.google.com/store/apps/details?id=com.healthline.ibd";
-	appstore_url = "https://apps.apple.com/US/app/id1459294732?mt=8";
-	app_name = "IBD";
-	welcome_text = "IBD Community";
+if(process.argv[9]=="mg" || process.argv[9]=="MG"){
+	URL="https://migraine.healthline.com";
+	if(process.argv[10]=="stage" || process.argv[10]=="STAGE"){
+		URL="https://together-mig-stage-web.healthline.com";
+	}
+	playstore_url="https://play.google.com/store/apps/details?id=com.healthline.mig";
+	appstore_url="https://apps.apple.com/US/app/id1494062954?mt=8";
+	app_name="Migraine";
+	welcome_text="Migraine Community";
 }
-if (process.argv[9] == "t2d" || process.argv[9] == "T2D") {
-	URL = "https://t2d.healthline.com";
-	playstore_url = "https://play.google.com/store/apps/details?id=com.healthline.t2d";
-	appstore_url = "https://apps.apple.com/US/app/id1498858311?mt=8";
-	app_name = "T2D";
-	welcome_text = "Type 2 Diabetes Community";
+if(process.argv[9]=="ibd" || process.argv[9]=="IBD"){
+	URL="https://ibd.healthline.com";
+	if(process.argv[10]=="stage" || process.argv[10]=="STAGE"){
+		URL="https://together-ibd-stage-web.healthline.com";
+	}
+	playstore_url="https://play.google.com/store/apps/details?id=com.healthline.ibd";
+	appstore_url="https://apps.apple.com/US/app/id1459294732?mt=8";
+	app_name="IBD";
+	welcome_text="IBD Community";
 }
-if (process.argv[9] == "ra" || process.argv[9] == "RA") {
-	URL = "https://ra.healthline.com";
-	playstore_url = "https://play.google.com/store/apps/details?id=com.healthline.ra";
-	appstore_url = "https://apps.apple.com/US/app/id1498862311?mt=8";
-	app_name = "RA";
-	welcome_text = "Rheumatoid Arthritis Community";
+if(process.argv[9]=="t2d" || process.argv[9]=="T2D"){
+	URL="https://t2d.healthline.com";
+	if(process.argv[10]=="stage" || process.argv[10]=="STAGE"){
+		URL="https://together-t2d-stage-web.healthline.com";
+	}
+	playstore_url="https://play.google.com/store/apps/details?id=com.healthline.t2d";
+	appstore_url="https://apps.apple.com/US/app/id1498858311?mt=8";
+	app_name="T2D";
+	welcome_text="Type 2 Diabetes Community";
+}
+if(process.argv[9]=="ra" || process.argv[9]=="RA"){
+	URL="https://ra.healthline.com";
+	if(process.argv[10]=="stage" || process.argv[10]=="STAGE"){
+		URL="https://together-ra-stage-web.healthline.com";
+	}
+	playstore_url="https://play.google.com/store/apps/details?id=com.healthline.ra";
+	appstore_url="https://apps.apple.com/US/app/id1498862311?mt=8";
+	app_name="RA";
+	welcome_text="Rheumatoid Arthritis Community";
 }
 
 describe(app_name + ' Web Sign in / Sign Up ', async () => { // Started to new test-suit
@@ -69,7 +89,7 @@ describe(app_name + ' Web Sign in / Sign Up ', async () => { // Started to new t
 		await page.close();
 	});
 
-	it('*** Sign In page ', async () => {
+	xit('*** Sign In page ', async () => {
 		var messages = []; // Declared messages array to hold the errors
 		try { // Try for privecy popup
 
@@ -204,7 +224,7 @@ describe(app_name + ' Web Sign in / Sign Up ', async () => { // Started to new t
 
 			const signupLink = await headerRightPane.$("shadow/ion-router-link");
 			await signupLink.click();  // Clicked Sign Up button
-
+		//	await page.waitForNavigation();
 			try {
 
 				await page.waitForSelector("app-registration", {
@@ -213,41 +233,53 @@ describe(app_name + ' Web Sign in / Sign Up ', async () => { // Started to new t
 				const headerLeftPane = await page.$("app-registration");  //locate app privacy pop-up
 
 				try {
+					await page.waitForSelector("shadow/input[type = text]", {
+						visible: true,
+					});
 					const emailAddress = await headerLeftPane.$("shadow/input[type = text]");
-					await emailAddress.type('boss@gmail.com');
+					await emailAddress.click({ clickCount: 1 });
+				
+				//await emailAddress.type("boss@gmail.com", {delay: 700});
+				await emailAddress.type("  boss@gmail.com", {delay: 500});
 				} catch (e) {
 					console.log(e);
 					messages.push("EmailAddress fields is missing in " + app_name);
 				}
 
 				try {
-					const continueButton = await headerLeftPane.$("shadow/div.input-button");
+					await page.waitForSelector("shadow/.input-button", {
+						visible: true,
+					});
+					const continueButton = await headerLeftPane.$("shadow/.input-button");
 					await continueButton.click();
+					//await page.waitForNavigation();
 				} catch (e) {
 					console.log(e);
 					messages.push("Continue button is missing in " + app_name);
 				}
-
+				await page.waitForNavigation();
+				await page.waitForNavigation();
+//
+//				await page.waitFor(7000);
 				try { //Sign Up second screen
 
+					
 					await page.waitForSelector("app-registration:nth-child(3)", {
 						visible: true,
 					});
-
-					//await page.waitFor(5000);
-
+	 
 					const headerLeftPane1 = await page.$("app-registration:nth-child(3)");  //locate app privacy pop-up
-					//const emailId = await headerLeftPane1.$("shadow/input[type = text]"); 
-					//await emailId.type('test12@gmail.com');
                     try{
-					const password = await headerLeftPane1.$("shadow/input[type = password]");
-					await password.type('12345678');
+
+					const password = await page.$$("shadow/input");
+					await password[1].type('12345678');
 				    } catch (e) {
 					    console.log(e);
 					    messages.push("Continue button is missing in " + app_name);
 				    }
 					try{
 					const userName = await headerLeftPane1.$$("shadow/input[type = text]");
+					await userName[1].click({ clickCount: 1 });
 					await userName[1].type('boss');
 				    } catch (e) {
 					  console.log(e);
@@ -345,7 +377,7 @@ describe(app_name + ' Web Sign in / Sign Up ', async () => { // Started to new t
 		await page.waitFor(5000);
 	});
 
-	it('*** Error Validation Email Sign In ', async () => {
+	xit('*** Error Validation Email Sign In ', async () => {
 		var messages = []; // Declared messages array to hold the errors
 		await page.goto(URL, {
 			waitUntil: 'networkidle2',
@@ -389,6 +421,7 @@ describe(app_name + ' Web Sign in / Sign Up ', async () => { // Started to new t
 
 			} catch (e) {
 				console.log(e);
+
 				messages.push("Password field is missing " + app_name);
 			}
 
@@ -459,7 +492,7 @@ describe(app_name + ' Web Sign in / Sign Up ', async () => { // Started to new t
 		await page.waitFor(5000);
 	});
 
-	it('*** Email Sign In flow ', async () => {
+	xit('*** Email Sign In flow ', async () => {
 		var messages = []; // Declared messages array to hold the errors
 
 		try {
@@ -534,13 +567,18 @@ describe(app_name + ' Web Sign in / Sign Up ', async () => { // Started to new t
 	});
 
 
-	xit('*** Google Sign In flow ', async () => {
+	it('*** Google Sign In flow ', async () => {
 		var messages = []; // Declared messages array to hold the errors
 		await page.goto(URL, {
 			waitUntil: 'networkidle2',
 			// Remove the timeout
 			timeout: 0
 		});
+/*
+		//checking cookie to make sure that user is already logged in
+		//var cookies = await page.cookies();
+
+
 		// Waited for app-prvary tag to load
 		await page.waitForSelector("shadow/div.desktop.right-pane", {
 			visible: true,
@@ -554,6 +592,7 @@ describe(app_name + ' Web Sign in / Sign Up ', async () => { // Started to new t
 		} catch (e) {
 			messages.push("Login link is missing on Sign In page in " + app_name);
 		}
+		*/
 		try {
 
 			await page.waitForSelector("shadow/div.together-signin-container", {
@@ -573,16 +612,46 @@ describe(app_name + ' Web Sign in / Sign Up ', async () => { // Started to new t
 
 				// To deal with new tab opened by clicking link that opening the webpage in new tab 
 				const newPagePromise = new Promise(x => browser.once('targetcreated', target => x(target.page())));  // declare promise
-				const page2 = await newPagePromise; // Define New Browser tab
+				let page2 = await newPagePromise; // Define New Browser tab
 
-				await page2.waitForSelector("#headingText", {
-					visible: true,
-				});
-				const heading = await page2.$("#headingText");
-
+				//const heading = await page2.$("#headingText");
+				await page.waitFor(5000);
 				if (String(page2.url()).indexOf("https://accounts.google.com/o/oauth2/auth/identifier?redirect_uri=storagerelay") == -1) {
 					messages.push("Google Login Popup not open on clicking Continue with Google button");
 				}
+				await page.waitFor(3000);
+ 
+               		await page2.waitForSelector("input[type = email]", {
+						visible: true,
+					});
+					
+					const gemailAddress = await page2.$("input[type = email]");
+					await gemailAddress.type("prodigyinfosoft.p.ltd@gmail.com");
+					
+					await page2.waitForSelector("button", {
+						visible: true,
+					});
+					
+					const gbtn1 = await page2.$("button");
+					gbtn1.click();
+					
+
+					await page2.waitForSelector("input[type = password]", {
+						visible: true,
+					});
+					
+					const gpassword = await page2.$("input[type = password]");
+					await gpassword.type("XYZ886699@");
+					
+					await page2.waitForSelector("button", {
+						visible: true,
+					});
+					
+					const gbtn2 = await page2.$("button");
+					gbtn2.click();
+
+
+
 			} catch (e) {
 				console.log(e);
 				messages.push("Google button is missing on Sign In page in " + app_name);
@@ -606,7 +675,7 @@ describe(app_name + ' Web Sign in / Sign Up ', async () => { // Started to new t
 		//await page.waitFor(5000);
 	});
 
-	it('*** Apple Sign In flow ', async () => {
+	xit('*** Apple Sign In flow ', async () => {
 		var messages = []; // Declared messages array to hold the errors
 		await page.goto(URL, {
 			waitUntil: 'networkidle2',
