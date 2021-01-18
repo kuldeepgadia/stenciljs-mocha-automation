@@ -553,7 +553,7 @@ describe(app_name+' Web Home page', async () => { // Started to new test-suit
 	
 		
 
-	it('TC-1014 and TC-1015 *** Locate and verify "download on the app store" button and "Get it in Google Play" button on the join the community card', async () => {
+	xit('TC-1014 and TC-1015 *** Locate and verify "download on the app store" button and "Get it in Google Play" button on the join the community card', async () => {
 
 		var messages = []; // Declared messages array to hold the errors
 		
